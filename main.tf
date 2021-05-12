@@ -20,7 +20,7 @@ resource "google_container_cluster" "primary" {
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
   container_node_pool_name  =  "${var.container_node_pool_name}"
-  location = "${var.location_id}"
+  location = "${var.container_node_pool_name_location_id}"
   cluster    = "${var.google_container_cluster.primary.name}"
   node_count = "${var.node_count}"
   
