@@ -1,18 +1,10 @@
 provider "google" {
   version = "3.5.0"
-
- # credentials = "${file("terrafrom.json")}"
-
-  #   project = "gcp-service-line"
-  #   region  = "us-central1"
   project = ${var.project_id}
   region  = ${var.region}
 }
 resource "google_container_cluster" "primary" {
-#   name     = "my-cluster"
-#   location = "us-central1"
-#   subnetwork = "default"
-  
+ 
   cls_name  = ${var.cls_name}
   location_id = "${var.location_id}"
   subnetwork = "default"
@@ -29,10 +21,6 @@ resource "google_container_cluster" "primary" {
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
-    #   name       = "my-node-pool"
-    #   location   = "us-central1"
-    #   cluster    = google_container_cluster.primary.name
-    #   node_count = 1
   container_node_pool_name  =  "${var.container_node_pool_name}"
   location_id = "${var.location_id}"
   cluster    = "${var.google_container_cluster.primary.name}"
