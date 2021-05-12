@@ -43,7 +43,7 @@ variable "container_node_pool_name_location_id" {
 variable "node_count" {
   description = "Number of nodes to create"
   type =number
-  default = ""
+  default = 3
 }
 variable "machine_type" {
   description = "In the form of custom-CPUS-MEM, number of CPUs and memory for custom machine."
