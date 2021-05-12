@@ -1,6 +1,6 @@
 project_id ="gcp-service-line"
 region  ="us-central1"
-cls_name     ="my-cluster"
+cls_name     ="my-cluster-1"
 cls_location_id ="us-central1"
 initial_node_count    =1
 remove_default_node_pool =true
