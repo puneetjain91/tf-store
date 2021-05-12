@@ -5,7 +5,7 @@ provider "google" {
 }
 resource "google_container_cluster" "primary" {
  
-  cls_name  = ${var.cls_name}
+  cls_name  = "${var.cls_name}"
   location_id = "${var.location_id}"
   subnetwork = "default"
 
