@@ -24,6 +24,8 @@ resource "google_container_cluster" "primary" {
 #   initial_node_count       = 1
   remove_default_node_pool = true
   initial_node_count    = "${var.initial_node_count}"
+  network    = google_compute_network.vpc.name
+  subnetwork = google_compute_subnetwork.subnet.name
 }
 
 resource "google_container_node_pool" "primary_preemptible_nodes" {
@@ -34,7 +36,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
   container_node_pool_name  =  "${var.container_node_pool_name}"
   location_id = "${var.location_id}"
   cluster    = "${var.google_container_cluster.primary.name}"
-  node_count = "{var.node_count}"
+  node_count = "${var.node_count}"
   
 node_config {
 
